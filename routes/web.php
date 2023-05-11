@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Actions\ProcessNbnApplicationsAction;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/process-nbn-applications', function () {
+    $action = app(ProcessNbnApplicationsAction::class);
+    return $action();
 });
